@@ -30,7 +30,7 @@ export default function PayNestSend() {
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:3000/account/transfer", {
+      const res = await fetch("https://paynest-thmq.onrender.com/account/transfer", {
         method: "POST",
         headers: { "Content-Type": "application/json", token },
         body: JSON.stringify({ receiver: sendTo, amount: parsed }),
