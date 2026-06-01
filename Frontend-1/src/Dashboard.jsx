@@ -42,7 +42,7 @@ export default function PayNestDashboard() {
   async function loadUsers(filter) {
     try {
       const res = await fetch(
-        `http://localhost:3000/user/bulk?filter=${filter}`,
+        `https://paynest-thmq.onrender.com/user/bulk?filter=${filter}`,
         { headers: { token } }
       );
       const data = await res.json();
