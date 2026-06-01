@@ -24,7 +24,7 @@ export default function PayNestDashboard() {
 
   async function loadBalance() {
     try {
-      const res = await fetch("http://localhost:3000/account/balance", {
+      const res = await fetch("https://paynest-thmq.onrender.com/account/balance", {
         headers: { token },
       });
       const data = await res.json();
@@ -62,7 +62,7 @@ export default function PayNestDashboard() {
   async function loadTransactions() {
     try {
       console.log("Loading transactions with token:", token);
-      const res = await fetch("http://localhost:3000/account/transactions", {
+      const res = await fetch("https://paynest-thmq.onrender.com/account/transactions", {
         headers: { token },
       });
       const data = await res.json();
