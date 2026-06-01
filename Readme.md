@@ -1,106 +1,63 @@
-# Assignment: Payments Backend + Frontend
+PayNestPayNest
+A full-stack peer-to-peer money transfer app built with Node.js + Express (backend) and React + Vite (frontend).
 
-## Tech Stack
+Features
+User signup and signin with JWT authentication and bcrypt password hashing
+Each user gets a random starting balance on signup
+Transfer funds to any registered user
+View last 10 sent/received transactions
+Search users by name to send money
+Atomic balance updates using MongoDB sessions
 
-* Node.js
-* Express
-* MongoDB (Mongoose)
-* JWT
-* Zod
+Project Structure
+PAYNEST/
+├── backend/
+│   ├── index.js          # Express server and all API routes
+│   ├── db.js             # MongoDB models (Users, Accounts, Transactions)
+│   ├── middleware.js     # JWT auth middleware
+│   └── frontend/         # Static HTML frontend (legacy)
+│
+├── Frontend-1/           # React + Vite frontend
+│   ├── src/
+│   │   ├── Dashboard.jsx
+│   │   ├── Signup.jsx
+│   │   ├── Signin.jsx
+│   │   └── Send.jsx
+│   └── vite.config.js
+│
+├── .env
+└── package.json
 
----
+Tech Stack
+LayerTechnologyBackendNode.js, ExpressDatabaseMongoDB, MongooseAuthJWT, bcryptValidationZodFrontendReact, Vite
 
-## Folder Structure
+Setup
+1. Clone the repo
+bashgit clone https://github.com/yourusername/paynest.git
+cd paynest
+2. Create a .env file in root
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+3. Run backend
+bashcd backend
+npm install
+node index.js
+4. Run frontend
+bashcd Frontend-1
+npm install
+npm run dev
 
-```
-backend/
-  ├── config.js
-  ├── db.js
-  ├── index.js
-  ├── middleware.js
-  └── routes/
-      ├── user.js
-      ├── account.js
-      └── index.js
-```
+API Endpoints
+Auth
+MethodEndpointDescriptionPOST/user/signupRegister a new userPOST/user/signinLogin, returns JWT token
+Account (requires auth)
+MethodEndpointDescriptionGET/account/balanceGet current balancePOST/account/transferTransfer moneyGET/account/transactionsGet last 10 transactions
+Users (requires auth)
+MethodEndpointDescriptionGET/user/bulk?filter=Search users by name
 
----
-
-## Base Route
-
-```
-/api/v1
-```
-
----
-
-## Schemas
-
-### User
-
-```
-{
-  username: String,   // email, unique
-  password: String,
-  firstName: String,
-  lastName: String
-}
-```
-
-### Account
-
-```
-{
-  userId: ObjectId,   // reference to User
-  balance: Number
-}
-```
-
----
-
-## What to Build
-
-### User Routes
-
-* POST `/user/signup`
-* POST `/user/signin`
-* PUT `/user/` (protected)
-* GET `/user/bulk?filter=`
-
-### Account Routes
-
-* GET `/account/balance` (protected)
-* POST `/account/transfer` (protected)
-
----
-
-## Requirements
-
-* JWT auth middleware
-* Attach `userId` from token
-* Create account on signup with random balance
-* Use MongoDB transactions for transfer
-* Validate inputs using Zod
-
----
-
-## Frontend (Required)
-
-Build a simple frontend for this system.
-
-Guidelines:
-
-* Must support:
-
-  * Signup / Signin
-  * View balance
-  * Search users
-  * Send money
-* UI/UX is up to you — design it your way
-
----
-
-## Output
-
-* Working backend
-* Functional frontend connected to backend
+Authentication
+All protected routes require the JWT token in the request header:
+token: <your_jwt_token>
+Token expires in 7 days.
+License
+MIT
