@@ -8,11 +8,11 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/"          element={<Navigate to="/signup" />} />
-       <Route path="/signin"    element={<Navigate to="/signin" />} />
-        <Route path="/signup"    element={<Navigate to="/signup" />} />
-        <Route path="/dashboard" element={<Navigate to="/dashboard" />} />
-        <Route path="/send"      element={<Navigate to="/send" />} />
+        <Route path="/" element={<Navigate to="/signup" />} />
+      <Route path="/signin" element={<PayNestSignIn />} />
+      <Route path="/signup" element={<PayNestSignUp />} />
+      <Route path="/dashboard" element={<PayNestDashboard />} />
+      <Route path="/send" element={<PayNestSend />} />
       </Routes>
     </BrowserRouter>
   );
