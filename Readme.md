@@ -9,24 +9,7 @@ View last 10 sent/received transactions
 Search users by name to send money
 Atomic balance updates using MongoDB sessions
 
-Project Structure
-PAYNEST/
-├── backend/
-│   ├── index.js          # Express server and all API routes
-│   ├── db.js             # MongoDB models (Users, Accounts, Transactions)
-│   ├── middleware.js     # JWT auth middleware
-│   └── frontend/         # Static HTML frontend (legacy)
-│
-├── Frontend-1/           # React + Vite frontend
-│   ├── src/
-│   │   ├── Dashboard.jsx
-│   │   ├── Signup.jsx
-│   │   ├── Signin.jsx
-│   │   └── Send.jsx
-│   └── vite.config.js
-│
-├── .env
-└── package.json
+
 
 Tech Stack
 LayerTechnologyBackendNode.js, ExpressDatabaseMongoDB, MongooseAuthJWT, bcryptValidationZodFrontendReact, Vite
